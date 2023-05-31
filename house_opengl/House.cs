@@ -20,28 +20,37 @@ namespace House
 
         private Cube[] cubes = new Cube[] {
             // (center_x, center_y, center_z, width(x), height(y), depth(z), testure_path, texture_unit)
+            // podłoga
+            // new Cube( 0,     -1.2f,     0,      10,     0.01f,    10,     "C:/Users/kacpe/source/repos/house_opengl/house_opengl/Textures/grass.png"),
             // sides (walls)
-            new Cube( 0,     0,     0,      5,     2f,    5,     "C:/Users/kacpe/source/repos/house_opengl/house_opengl/Textures/wall-tex.jpg"),
-            // door                                                       
-            new Cube( 0,    -0.4f,  2.52f,  0.8f,  1.2f,  0.02f, "C:/Users/kacpe/source/repos/house_opengl/house_opengl/Textures/window.jpg"),
-            // front left side window                                     
-            new Cube(-1.4f,  0f,    2.52f,  0.8f,  0.8f,  0.02f, "C:/Users/kacpe/source/repos/house_opengl/house_opengl/Textures/window.jpg"),
-            // front right side window                                    
-            new Cube( 1.4f,  0f,    2.52f,  0.8f,  0.8f,  0.02f, "C:/Users/kacpe/source/repos/house_opengl/house_opengl/Textures/window.jpg"),
+            new Cube( 0,     0,     0,      5,     2.4f,    5,     "C:/Users/kacpe/source/repos/house_opengl/house_opengl/Textures/wall1.jpg"),
+            // drzwi                                                       
+            new Cube( 0,    -0.6f,  2.52f,  0.6f,  1.2f,  0.02f, "C:/Users/kacpe/source/repos/house_opengl/house_opengl/Textures/door.png"),
+            // frontowe lewe okno                                    
+            new Cube(-1.5f,  -0.3f,    2.52f,  0.6f,  0.6f,  0.02f, "C:/Users/kacpe/source/repos/house_opengl/house_opengl/Textures/okno.png"),
+            // frontowe prawe okno                                    
+            new Cube( 1.5f,  -0.3f,    2.52f,  0.6f,  0.6f,  0.02f, "C:/Users/kacpe/source/repos/house_opengl/house_opengl/Textures/okno.png"),
 
-            // 2nd floor
-            new Cube( 0,     2,     0,      5,     2f,    5,     "C:/Users/kacpe/source/repos/house_opengl/house_opengl/Textures/wall-tex.jpg"),
-            // front left side window
-            new Cube(-1.4f,  2,    2.52f,  0.8f,  0.8f,  0.02f, "C:/Users/kacpe/source/repos/house_opengl/house_opengl/Textures/window.jpg"),
-            // front right side window
-            new Cube( 1.4f,  2,    2.52f,  0.8f,  0.8f,  0.02f, "C:/Users/kacpe/source/repos/house_opengl/house_opengl/Textures/window.jpg"),
+            
+            // Ściany z tyłu
+            // tylne lewe okno
+            new Cube(-1.5f,  -0.3f,    -2.52f,  0.6f,  0.6f,  0.02f, "C:/Users/kacpe/source/repos/house_opengl/house_opengl/Textures/okno.png"),
+            // tylne prawe okno
+            new Cube( 1.5f,  -0.3f,    -2.52f,  0.6f,  0.6f,  0.02f, "C:/Users/kacpe/source/repos/house_opengl/house_opengl/Textures/okno.png"),
+
+            //Ściany z prawej
+            new Cube(2.52f, 0, 0.8f, 0.02f, 0.8f, 0.8f, "C:/Users/kacpe/source/repos/house_opengl/house_opengl/Textures/window.jpg"),
+            new Cube(2.52f, 0, 0.8f, 0.02f, 0.8f, 0.8f, "C:/Users/kacpe/source/repos/house_opengl/house_opengl/Textures/window.jpg"),
+            
+            // Ściana z lewej
+
+            new Cube(-2.52f, 0, 0.8f, 0.02f, 0.8f, 0.8f, "C:/Users/kacpe/source/repos/house_opengl/house_opengl/Textures/window.jpg"),
 
         };
 
         private Camera camera;
         private bool firstMove = true;
 
-        ////
 
         private List<string> ImageFaces
         {
