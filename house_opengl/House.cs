@@ -9,6 +9,7 @@ using System.Drawing;
 using GlmSharp;
 using Models;
 using Project.Helpers;
+using Program;
 
 namespace House
 {
@@ -18,35 +19,45 @@ namespace House
         private Shader shader;
         private Vector2 lastPos;
 
-        private Cube[] cubes = new Cube[] {
-            // (center_x, center_y, center_z, width(x), height(y), depth(z), testure_path, texture_unit)
-            // podłoga
-            new Cube( 0,     -1.2f,     0,      10,     0.01f,    10,     "C:/Users/kacpe/source/repos/house_opengl/house_opengl/Textures/grass.png"),
-            // sides (walls)
-            new Cube( 0,     0,     0,      5,     2.4f,    5,     "C:/Users/kacpe/source/repos/house_opengl/house_opengl/Textures/wall1.jpg"),
-            // drzwi                                                       
-            new Cube( 0,    -0.6f,  2.52f,  0.6f,  1.2f,  0.02f, "C:/Users/kacpe/source/repos/house_opengl/house_opengl/Textures/door.png"),
-            // frontowe lewe okno                                    
-            new Cube(-1.5f,  -0.3f,    2.52f,  0.6f,  0.6f,  0.02f, "C:/Users/kacpe/source/repos/house_opengl/house_opengl/Textures/okno.png"),
-            // frontowe prawe okno                                    
-            new Cube( 1.5f,  -0.3f,    2.52f,  0.6f,  0.6f,  0.02f, "C:/Users/kacpe/source/repos/house_opengl/house_opengl/Textures/okno.png"),
 
-            
-            // Ściany z tyłu
+        private Cube[] cubes = new Cube[] {
+            // (center_x, center_y, center_z, width(x), height(y), depth(z), texture_path, texture_unit)
+            // podłoga
+            new Cube( 0,     -1.2f,     0,      10,     0.01f,    10,   "C:/Users/kacpe/source/repos/house_opengl/house_opengl/Textures/grass.png"),
+            // sides (walls)
+            new Cube( 0,     0,     0,      5,     2.4f,    5,          "C:/Users/kacpe/source/repos/house_opengl/house_opengl/Textures/wall1.jpg"),
+            // drzwi
+            // 
+
+            // Okna front
+            new Cube( 0,    -0.6f,  2.52f,  0.6f,  1.2f,  0.02f,        "C:/Users/kacpe/source/repos/house_opengl/house_opengl/Textures/door.png"),
+            // frontowe lewe okno                                    
+            new Cube(-1.5f,  -0.3f,    2.52f,  0.6f,  0.6f,  0.02f,     "C:/Users/kacpe/source/repos/house_opengl/house_opengl/Textures/okno.png"),
+            // frontowe prawe okno                                    
+            new Cube( 1.5f,  -0.3f,    2.52f,  0.6f,  0.6f,  0.02f,     "C:/Users/kacpe/source/repos/house_opengl/house_opengl/Textures/okno.png"),
+
+
+            // Okna z tyłu
             // tylne lewe okno
             new Cube(-1.5f,  -0.3f,    -2.52f,  0.6f,  0.6f,  0.02f, "C:/Users/kacpe/source/repos/house_opengl/house_opengl/Textures/okno.png"),
             // tylne prawe okno
             new Cube( 1.5f,  -0.3f,    -2.52f,  0.6f,  0.6f,  0.02f, "C:/Users/kacpe/source/repos/house_opengl/house_opengl/Textures/okno.png"),
 
-            //Ściany z prawej
-            new Cube(2.52f, 0, 0.8f, 0.02f, 0.8f, 0.8f, "C:/Users/kacpe/source/repos/house_opengl/house_opengl/Textures/window.jpg"),
-            new Cube(2.52f, 0, 0.8f, 0.02f, 0.8f, 0.8f, "C:/Users/kacpe/source/repos/house_opengl/house_opengl/Textures/window.jpg"),
-            
-            // Ściana z lewej
 
-            new Cube(-2.52f, 0, 0.8f, 0.02f, 0.8f, 0.8f, "C:/Users/kacpe/source/repos/house_opengl/house_opengl/Textures/window.jpg"),
+            //Okna z prawej
+            new Cube(2.5f, -0.3f, -1.5f, 0.02f, 0.6f, 0.6f, "C:/Users/kacpe/source/repos/house_opengl/house_opengl/Textures/okno.png"),
+            new Cube(2.5f, -0.3f, 1.5f, 0.02f, 0.6f, 0.6f, "C:/Users/kacpe/source/repos/house_opengl/house_opengl/Textures/okno.png"),
+
+            //Okna z lewej
+            new Cube(-2.5f, -0.3f, -1.5f, 0.02f, 0.6f, 0.6f, "C:/Users/kacpe/source/repos/house_opengl/house_opengl/Textures/okno.png"),
+            new Cube(-2.5f, -0.3f, 1.5f, 0.02f, 0.6f, 0.6f, "C:/Users/kacpe/source/repos/house_opengl/house_opengl/Textures/okno.png"),
 
         };
+
+        // nie mogę coś wyświetlić tej piramidy
+       // Pyramid pyramid = new Pyramid(-10f, -0.3f, 2.52f, 5f, 5f, 5f, "C:/Users/kacpe/source/repos/house_opengl/house_opengl/Textures/grass.png");
+
+
 
         private Camera camera;
         private bool firstMove = true;
@@ -169,8 +180,8 @@ namespace House
                 Close();
             }
 
-            const float cameraSpeed = 1.5f;
-            const float sensitivity = 0.2f;
+            const float cameraSpeed = 3f;
+            const float sensitivity = 0.5f;
 
             if (input.IsKeyDown(Keys.W))
             {
