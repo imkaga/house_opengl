@@ -29,26 +29,25 @@ namespace House
 
         private Cube[] cubes = new Cube[] {
             // (center_x, center_y, center_z, width(x), height(y), depth(z), texture_path, texture_unit)
-            new Cube( 0,     -1.2f,     0,      12,     0.05f,    12,   "../../..//Textures/grass.png"),
-            new Cube( 0,     0,     0,      5,     2.4f,    5,          "../../../Textures/wall1.jpg"),
+            new Cube( 0, -1.2f, 0, 12, 0.05f, 12,   "../../..//Textures/grass.png"),
+            new Cube( 0, 0, 0, 5, 2.4f, 5,          "../../../Textures/wall1.jpg"),
 
-            // drzwi
+            // Drzwi
             new Cube( 0,    -0.6f,  2.52f,  0.6f,  1.2f,  0.02f,        "../../../Textures/door.png"),
             
 
             // Okna front
-            // frontowe lewe okno                                    
+            // Frontowe lewe okno                                    
             new Cube(-1.5f,  -0.3f,    2.52f,  0.6f,  0.6f,  0.02f,     "../../../Textures/okno.png"),
-            // frontowe prawe okno                                       
+            // Frontowe prawe okno                                       
             new Cube( 1.5f,  -0.3f,    2.52f,  0.6f,  0.6f,  0.02f,     "../../../Textures/okno.png"),
 
 
             // Okna z tyłu
-            // tylne lewe okno
+            // Tylne lewe okno
             new Cube(-1.5f,  -0.3f,    -2.52f,  0.6f,  0.6f,  0.02f, "../../../Textures/okno.png"),
-            // tylne prawe okno                                       
+            // Tylne prawe okno                                       
             new Cube( 1.5f,  -0.3f,    -2.52f,  0.6f,  0.6f,  0.02f, "../../../Textures/okno.png"),
-
 
             //Okna z prawej
             new Cube(2.5f, -0.3f, -1.5f, 0.02f, 0.6f, 0.6f, "../../..//Textures/okno.png"),
@@ -59,10 +58,15 @@ namespace House
             new Cube(-2.5f, -0.3f, 1.5f, 0.02f, 0.6f, 0.6f,  "../../../Textures/okno.png"),
 
             // Dekoracje
-            new Cube( 2,    -0.6f,  3.2f,  1.2f,  0.6f,  0.05f, "../../../Textures/tabliczka.png"),
+            new Cube( 2,    -0.7f,  8.4f,  2.4f,  1.2f,  0.05f, "../../../Textures/tabliczka.png"),
             new Cube(-1.5f, -0.9f,  2.52f,  0.6f,  0.6f,  0.6f, "../../../Textures/krzak.jpg"),
             new Cube(-2.82f, -0.9f,  -2.2f,  0.6f,  0.6f,  0.6f, "../../../Textures/krzak.jpg"),
             new Cube(2.82f, -0.9f,  -1.4f,  0.6f,  0.6f,  0.6f, "../../../Textures/krzak.jpg"),
+
+            // Cubes
+            new Cube(2.9f, -0.9f, -4.2f, 0.6f, 0.6f, 0.6f, "../../../Textures/krzak.jpg"),
+            new Cube(2.9f + 0.7f, -0.9f, -4.2f, 0.6f, 0.6f, 0.6f, "../../../Textures/krzak.jpg"),
+            new Cube(2.9f + 0.7f * 2, -0.9f, -4.2f, 0.6f, 0.6f, 0.6f, "../../../Textures/krzak.jpg"),
 
             // Drzewo
             new Cube(-4, -0.9f,  0.4f,  0.6f,  0.6f,  0.6f, "../../../Textures/wood.jpg"),
@@ -77,7 +81,7 @@ namespace House
 
         };
 
-        private Pyramid roof = new Pyramid(new Punkt { x = 0f, y = 2.9f, z = 0f }, 5.5f, 2f, 4.5f, "../../../grass.jpg");
+        private Pyramid roof = new Pyramid(new Punkt { x = 0f, y = 1.25f, z = 0f }, 5.5f, 2f, 4.5f, "../../../Textures/oak.png");
 
         // nie mogę coś wyświetlić tej piramidy
         // Pyramid pyramid = new Pyramid(-10f, -0.3f, 2.52f, 5f, 5f, 5f, "C:/Users/kacpe/source/repos/house_opengl/house_opengl/Textures/grass.png");
