@@ -175,6 +175,13 @@ namespace Project
             GL.UniformMatrix4(_uniformLocations[name], true, ref data);
         }
 
+        public void SetBool(string name, bool data)
+        {
+            GL.UseProgram(Handle);
+            GL.Uniform1(_uniformLocations[name], data ? 1 : 0);
+        }
+
+
         /// <summary>
         /// Set a uniform Vector3 on this shader.
         /// </summary>

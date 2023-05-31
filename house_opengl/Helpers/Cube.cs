@@ -2,7 +2,7 @@
 using OpenTK.Graphics.OpenGL4;
 using Project.Helpers;
 
-namespace Project
+namespace Program
 {
     public class Cube
     {

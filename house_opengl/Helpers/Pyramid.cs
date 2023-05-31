@@ -1,83 +1,51 @@
-﻿using OpenTK.Graphics.OpenGL;
-using System.Drawing;
-
+﻿using System;
 namespace Program
 {
-    class Pyramid
+    public class Pyramid
     {
-        private float positionX;
-        private float positionY;
-        private float positionZ;
-        private float width;
-        private float height;
-        private float depth;
-        private string texturePath;
+        public Triangle[] triangles { get; set; }
 
-        public float PositionX { get => positionX; set => positionX = value; }
-        public float PositionY { get => positionY; set => positionY = value; }
-        public float PositionZ { get => positionZ; set => positionZ = value; }
-        public float Width { get => width; set => width = value; }
-        public float Height { get => height; set => height = value; }
-        public float Depth { get => depth; set => depth = value; }
-        public string TexturePath { get => texturePath; set => texturePath = value; }
-
-        public Pyramid(float posX, float posY, float posZ, float w, float h, float d, string texPath)
+        public Pyramid(Punkt baseCenter, float width, float height, float depth, string texturePath)
         {
-            positionX = posX;
-            positionY = posY;
-            positionZ = posZ;
-            width = w;
-            height = h;
-            depth = d;
-            texturePath = texPath;
-        }
+            Punkt closeLeft = new Punkt
+            {
+                x = baseCenter.x - (width / 2),
+                y = baseCenter.y,
+                z = baseCenter.z + (depth / 2)
+            };
+            Punkt farLeft = new Punkt
+            {
+                x = baseCenter.x - (width / 2),
+                y = baseCenter.y,
+                z = baseCenter.z - (depth / 2)
+            };
+            Punkt farRight = new Punkt
+            {
+                x = baseCenter.x + (width / 2),
+                y = baseCenter.y,
+                z = baseCenter.z - (depth / 2)
+            };
+            Punkt closeRight = new Punkt
+            {
+                x = baseCenter.x + (width / 2),
+                y = baseCenter.y,
+                z = baseCenter.z + (depth / 2)
+            };
+            Punkt pinacle = new Punkt
+            {
+                x = baseCenter.x,
+                y = baseCenter.y + height,
+                z = baseCenter.z
+            };
 
-        public void Draw()
-        {
-            GL.PushMatrix();
-            GL.Translate(PositionX, PositionY, PositionZ);
-
-            GL.BindTexture(TextureTarget.Texture2D, LoadTexture(TexturePath));
-
-            GL.Begin(PrimitiveType.Triangles);
-
-            GL.Color3(1.0f, 0.0f, 0.0f);
-            GL.Vertex3(0.0f, Height / 2, 0.0f);
-            GL.Color3(0.0f, 1.0f, 0.0f);
-            GL.Vertex3(-Width / 2, -Height / 2, Depth / 2);
-            GL.Color3(0.0f, 0.0f, 1.0f);
-            GL.Vertex3(Width / 2, -Height / 2, Depth / 2);
-
-            GL.Color3(1.0f, 0.0f, 0.0f);
-            GL.Vertex3(0.0f, Height / 2, 0.0f);
-            GL.Color3(0.0f, 1.0f, 0.0f);
-            GL.Vertex3(Width / 2, -Height / 2, Depth / 2);
-            GL.Color3(0.0f, 0.0f, 1.0f);
-            GL.Vertex3(0.0f, -Height / 2, -Depth / 2);
-
-            GL.Color3(1.0f, 0.0f, 0.0f);
-            GL.Vertex3(0.0f, Height / 2, 0.0f);
-            GL.Color3(0.0f, 1.0f, 0.0f);
-            GL.Vertex3(0.0f, -Height / 2, -Depth / 2);
-            GL.Color3(0.0f, 0.0f, 1.0f);
-            GL.Vertex3(-Width / 2, -Height / 2, Depth / 2);
-
-            GL.Color3(1.0f, 0.0f, 0.0f);
-            GL.Vertex3(0.0f, Height / 2, 0.0f);
-            GL.Color3(0.0f, 1.0f, 0.0f);
-            GL.Vertex3(-Width / 2, -Height / 2, Depth / 2);
-            GL.Color3(0.0f, 0.0f, 1.0f);
-            GL.Vertex3(0.0f, -Height / 2, -Depth / 2);
-
-            GL.End();
-            GL.PopMatrix();
-        }
-
-
-        private int LoadTexture(string path)
-        {
-            // Code to load texture from path and return texture ID
-            return 0;
+            triangles = new Triangle[]
+            {
+                new Triangle(closeLeft, farLeft, pinacle, texturePath),
+                new Triangle(farLeft, farRight, pinacle, texturePath),
+                new Triangle(farRight, closeRight, pinacle, texturePath),
+                new Triangle(closeRight, closeLeft, pinacle, texturePath)
+            };
         }
     }
 }
+
