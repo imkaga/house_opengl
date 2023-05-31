@@ -21,7 +21,7 @@ namespace House
         private Cube[] cubes = new Cube[] {
             // (center_x, center_y, center_z, width(x), height(y), depth(z), testure_path, texture_unit)
             // podłoga
-            // new Cube( 0,     -1.2f,     0,      10,     0.01f,    10,     "C:/Users/kacpe/source/repos/house_opengl/house_opengl/Textures/grass.png"),
+            new Cube( 0,     -1.2f,     0,      10,     0.01f,    10,     "C:/Users/kacpe/source/repos/house_opengl/house_opengl/Textures/grass.png"),
             // sides (walls)
             new Cube( 0,     0,     0,      5,     2.4f,    5,     "C:/Users/kacpe/source/repos/house_opengl/house_opengl/Textures/wall1.jpg"),
             // drzwi                                                       
