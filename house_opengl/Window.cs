@@ -81,7 +81,7 @@ namespace House
 
         };
 
-        private Pyramid roof = new Pyramid(new Punkt { x = 0f, y = 1.25f, z = 0f }, 5.5f, 2f, 4.5f, "../../../Textures/oak.png");
+        private Pyramid roof = new Pyramid(new Punkt { x = 0f, y = 1.25f, z = 0f }, 5f, 2.5f, 5f, "../../../Textures/oak.png");
 
         // nie mogę coś wyświetlić tej piramidy
         // Pyramid pyramid = new Pyramid(-10f, -0.3f, 2.52f, 5f, 5f, 5f, "C:/Users/kacpe/source/repos/house_opengl/house_opengl/Textures/grass.png");
