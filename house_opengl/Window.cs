@@ -29,19 +29,17 @@ namespace House
 
         private Cube[] cubes = new Cube[] {
             // (center_x, center_y, center_z, width(x), height(y), depth(z), texture_path, texture_unit)
-            new Cube( 0, -1.2f, 0, 12, 0.05f, 12,   "../../..//Textures/grass.png"),
+            new Cube( 0, -1.2f, 0, 12, 0.1f, 12,   "../../..//Textures/grass.png"),
             new Cube( 0, 0, 0, 5, 2.4f, 5,          "../../../Textures/wall1.jpg"),
 
             // Drzwi
             new Cube( 0,    -0.6f,  2.52f,  0.6f,  1.2f,  0.02f,        "../../../Textures/door.png"),
-            
 
             // Okna front
             // Frontowe lewe okno                                    
             new Cube(-1.5f,  -0.3f,    2.52f,  0.6f,  0.6f,  0.02f,     "../../../Textures/okno.png"),
             // Frontowe prawe okno                                       
             new Cube( 1.5f,  -0.3f,    2.52f,  0.6f,  0.6f,  0.02f,     "../../../Textures/okno.png"),
-
 
             // Okna z tyłu
             // Tylne lewe okno
@@ -62,8 +60,6 @@ namespace House
             new Cube(-1.5f, -0.9f,  2.52f,  0.6f,  0.6f,  0.6f, "../../../Textures/krzak.jpg"),
             new Cube(-2.82f, -0.9f,  -2.2f,  0.6f,  0.6f,  0.6f, "../../../Textures/krzak.jpg"),
             new Cube(2.82f, -0.9f,  -1.4f,  0.6f,  0.6f,  0.6f, "../../../Textures/krzak.jpg"),
-
-            // Cubes
             new Cube(2.9f, -0.9f, -4.2f, 0.6f, 0.6f, 0.6f, "../../../Textures/krzak.jpg"),
             new Cube(2.9f + 0.7f, -0.9f, -4.2f, 0.6f, 0.6f, 0.6f, "../../../Textures/krzak.jpg"),
             new Cube(2.9f + 0.7f * 2, -0.9f, -4.2f, 0.6f, 0.6f, 0.6f, "../../../Textures/krzak.jpg"),
@@ -82,9 +78,6 @@ namespace House
         };
 
         private Pyramid roof = new Pyramid(new Punkt { x = 0f, y = 1.25f, z = 0f }, 5f, 2.5f, 5f, "../../../Textures/oak.png");
-
-        // nie mogę coś wyświetlić tej piramidy
-        // Pyramid pyramid = new Pyramid(-10f, -0.3f, 2.52f, 5f, 5f, 5f, "C:/Users/kacpe/source/repos/house_opengl/house_opengl/Textures/grass.png");
 
         public Window(GameWindowSettings gameWindowSettings, NativeWindowSettings nativeWindowSettings)
         : base(gameWindowSettings, nativeWindowSettings)
@@ -111,7 +104,7 @@ namespace House
                 GL.VertexAttribPointer(0, 3, VertexAttribPointerType.Float, false, 5 * sizeof(float), 0);
                 GL.EnableVertexAttribArray(0);
                 
-                shader = new Shader(@"C:\Users\kacpe\source\repos\house_opengl\house_opengl\Helpers\Shaders\shader.vert", @"C:\Users\kacpe\source\repos\house_opengl\house_opengl\Helpers\Shaders\shader.frag");
+                shader = new Shader("../../../Helpers/Shaders/shader.vert", "../../../Helpers/Shaders/shader.frag");
                 shader.Use();
 
 
